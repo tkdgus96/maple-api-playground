@@ -1,4 +1,4 @@
-import { CharacterInfoResponse } from "types/character";
+import { CharacterInfoResponse } from "@customTypes/character";
 import client from "./client";
 
 const characterApi = {
