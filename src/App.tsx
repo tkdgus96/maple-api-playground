@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import characterApi from "./api/character";
-import { CharacterInfoResponse } from "types/character";
+import characterApi from "./apis/character";
+import SideBar from "@components/SideBar";
+import { CharacterInfoResponse } from "@/customTypes/character";
 
 // 두 단어로 떨어져있는 겨우
 
@@ -35,7 +36,8 @@ function App() {
     <div style={{ display: "flex", flexDirection: "row", gap: "1rem" }}>
       {/* <div style={{ display: "flex", flexDirection: "column" }}>SideBar</div> */}
       <div>
-        <h1>메이플스토리 Open API를 실험해볼 수 있는 공간입니다.</h1>
+        <SideBar />
+        <h1>메이플스토리 Open API 실험실</h1>
         <div>
           캐릭터명 입력:
           <input value={name} onChange={(e) => handleChange(e.target.value)} />
