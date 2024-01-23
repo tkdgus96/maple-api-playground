@@ -10,7 +10,6 @@ const SideBar = () => {
   return (
     <Column>
       <div>Character</div>
-      <div>something</div>
     </Column>
   );
 };
