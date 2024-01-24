@@ -6,6 +6,10 @@ const NavigationBar = () => {
   const ocid = searchParams.get("ocid");
   const items: MenuProps["items"] = [
     {
+      label: <NavLink to="">검색</NavLink>,
+      key: "search",
+    },
+    {
       label: "캐릭터 정보",
       key: "character",
       children: [
