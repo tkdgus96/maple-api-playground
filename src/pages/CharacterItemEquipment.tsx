@@ -1,3 +1,4 @@
+import { StarTwoTone } from "@ant-design/icons";
 import characterApi from "@apis/character";
 import { CharacterItemEquipmentResponse } from "@customTypes/character";
 import styled from "@emotion/styled";
@@ -15,10 +16,10 @@ const Column = styled.div`
   flex-direction: column;
 `;
 
-const CharacterItemEquipment = (props) => {
-  const [a, setA] = useState<CharacterItemEquipmentResponse | undefined>(
-    undefined
-  );
+const CharacterItemEquipment = () => {
+  const [equipment, setEquipment] = useState<
+    CharacterItemEquipmentResponse | undefined
+  >(undefined);
 
   const [searchParams] = useSearchParams();
 
@@ -28,17 +29,29 @@ const CharacterItemEquipment = (props) => {
     if (ocid !== null) {
       (async function () {
         const res = await characterApi.getItemEquipmentInfo(ocid);
-        setA(res);
+        setEquipment(res);
       })();
     }
   }, [ocid]);
   return (
     <Column>
-      캐릭터 장비 정보
-      {a?.item_equipment.map((item, i) => (
+      <h3>캐릭터 장비 정보</h3>
+      {equipment?.item_equipment.map((item) => (
         <Row>
           <img src={item.item_shape_icon} />
-          <div>{item.item_name}</div>
+          <Row>
+            {item.item_name}{" "}
+            {item.starforce_scroll_flag !== "0" && (
+              <Row>
+                <StarTwoTone
+                  twoToneColor={
+                    item.starforce_scroll_flag === "미사용" ? "yellow" : "pink"
+                  }
+                />
+                <div>{item.starforce}</div>
+              </Row>
+            )}
+          </Row>
         </Row>
       ))}
     </Column>

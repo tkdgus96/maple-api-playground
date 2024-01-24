@@ -1,4 +1,7 @@
-import { CharacterInfoResponse } from "@customTypes/character";
+import {
+  CharacterInfoResponse,
+  CharacterItemEquipmentResponse,
+} from "@customTypes/character";
 import client from "./client";
 
 const characterApi = {
@@ -71,7 +74,7 @@ const characterApi = {
         date: new Date(Date.now() - 86400000).toISOString().split("T")[0],
       },
     });
-    return res.data as CharacterInfoResponse;
+    return res.data as CharacterItemEquipmentResponse;
   },
   async getCashItemEquipmentInfo(ocid: string) {
     const res = await client.get("maplestory/v1/character/cashitem-equipment", {
