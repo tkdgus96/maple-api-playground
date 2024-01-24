@@ -15,19 +15,26 @@ const Character = () => {
   const [characterInfo, setCharacterInfo] = useState<
     CharacterInfoResponse | undefined
   >(undefined);
+  const [a, setA] = useState();
 
   useEffect(() => {
     console.log(searchParams.get("ocid"));
     const ocid = searchParams.get("ocid");
-    if (ocid !== null)
+    if (ocid !== null) {
       (async function () {
         const res = await characterApi.getBasicInfo(ocid);
         setCharacterInfo(res);
       })();
+      (async function () {
+        const res = await characterApi.getItemEquipmentInfo(ocid);
+        setA(res);
+      })();
+    }
   }, [searchParams.get("ocid")]);
   return (
     characterInfo && (
       <Column>
+        {/* {JSON.stringify(a)} */}
         <h4> 캐릭터 정보</h4>
         <div>직업: {characterInfo.character_class}</div>
         <div>전직: {characterInfo.character_class_level}</div>
