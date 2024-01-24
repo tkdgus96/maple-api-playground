@@ -15,7 +15,6 @@ const Character = () => {
   const [characterInfo, setCharacterInfo] = useState<
     CharacterInfoResponse | undefined
   >(undefined);
-  const [a, setA] = useState();
 
   useEffect(() => {
     console.log(searchParams.get("ocid"));
@@ -24,10 +23,6 @@ const Character = () => {
       (async function () {
         const res = await characterApi.getBasicInfo(ocid);
         setCharacterInfo(res);
-      })();
-      (async function () {
-        const res = await characterApi.getItemEquipmentInfo(ocid);
-        setA(res);
       })();
     }
   }, [searchParams.get("ocid")]);
