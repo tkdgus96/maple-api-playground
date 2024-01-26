@@ -18,11 +18,6 @@ const NavigationBar = () => {
           key: "basicInfo",
         },
         {
-          label: "인기도 정보",
-          key: "popularityInfo",
-          disabled: true,
-        },
-        {
           label: "종합 능력치 정보",
           key: "statInfo",
           disabled: true,

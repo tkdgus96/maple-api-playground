@@ -1,5 +1,8 @@
 import characterApi from "@apis/character";
-import { CharacterInfoResponse } from "@customTypes/character";
+import {
+  CharacterInfoResponse,
+  CharacterPopularityResponse,
+} from "@customTypes/character";
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -15,6 +18,9 @@ const Character = () => {
   const [characterInfo, setCharacterInfo] = useState<
     CharacterInfoResponse | undefined
   >(undefined);
+  const [popularityInfo, setPopularityInfo] = useState<
+    CharacterPopularityResponse | undefined
+  >(undefined);
 
   useEffect(() => {
     console.log(searchParams.get("ocid"));
@@ -23,6 +29,10 @@ const Character = () => {
       (async function () {
         const res = await characterApi.getBasicInfo(ocid);
         setCharacterInfo(res);
+      })();
+      (async function () {
+        const res = await characterApi.getPopularityInfo(ocid);
+        setPopularityInfo(res);
       })();
     }
   }, [searchParams.get("ocid")]);
@@ -39,6 +49,7 @@ const Character = () => {
         <div>길드: {characterInfo.character_guild_name}</div>
         <div>레벨: {characterInfo.character_level}</div>
         <div>월드: {characterInfo.world_name}</div>
+        <div>인기도: {popularityInfo?.popularity}</div>
         <img src={characterInfo.character_image} />
       </Column>
     )

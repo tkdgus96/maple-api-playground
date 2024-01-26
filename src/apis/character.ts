@@ -1,6 +1,7 @@
 import {
   CharacterInfoResponse,
   CharacterItemEquipmentResponse,
+  CharacterPopularityResponse,
 } from "@customTypes/character";
 import client from "./client";
 
@@ -29,7 +30,7 @@ const characterApi = {
         date: new Date(Date.now() - 86400000).toISOString().split("T")[0],
       },
     });
-    return res.data as CharacterInfoResponse;
+    return res.data as CharacterPopularityResponse;
   },
   async getStatInfo(ocid: string) {
     const res = await client.get("maplestory/v1/character/stat", {
