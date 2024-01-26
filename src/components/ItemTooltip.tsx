@@ -121,26 +121,34 @@ const ItemBox = ({ item }: { item: ItemEquipment }) => {
           </div>
         )}
       </div>
-      <Divider
-        type="horizontal"
-        style={{ color: "white", margin: "4px 0px" }}
-      />
-      <div>
-        <div>{item.potential_option_grade} 잠재옵션</div>
-        <div>{item.potential_option_1}</div>
-        <div>{item.potential_option_2}</div>
-        <div>{item.potential_option_3}</div>
-      </div>
-      <Divider
-        type="horizontal"
-        style={{ color: "white", margin: "4px 0px" }}
-      />
-      <div>
-        <div>{item.additional_potentional_option_grade} 에디셔널 잠재옵션</div>
-        <div>{item.additional_potential_option_1}</div>
-        <div>{item.additional_potential_option_2}</div>
-        <div>{item.additional_potential_option_3}</div>
-      </div>
+      {item.potential_option_grade && (
+        <Divider
+          type="horizontal"
+          style={{ color: "white", margin: "4px 0px" }}
+        />
+      )}
+      {item.potential_option_grade && (
+        <div>
+          <div>{item.potential_option_grade} 잠재옵션</div>
+          <div>{item.potential_option_1}</div>
+          <div>{item.potential_option_2}</div>
+          <div>{item.potential_option_3}</div>
+        </div>
+      )}
+      {item.additional_potential_option_grade && (
+        <Divider
+          type="horizontal"
+          style={{ color: "white", margin: "4px 0px" }}
+        />
+      )}
+      {item.additional_potential_option_grade && (
+        <div>
+          <div>{item.additional_potential_option_grade} 에디셔널 잠재옵션</div>
+          <div>{item.additional_potential_option_1}</div>
+          <div>{item.additional_potential_option_2}</div>
+          <div>{item.additional_potential_option_3}</div>
+        </div>
+      )}
     </ItemWrapper>
   );
 };

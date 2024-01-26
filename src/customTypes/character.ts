@@ -145,7 +145,7 @@ export interface ItemEquipment {
   item_total_option: ItemTotalOption;
   item_base_option: ItemBaseOption;
   potential_option_grade: string;
-  additional_potentional_option_grade: string;
+  additional_potential_option_grade: string;
   potential_option_1: string;
   potential_option_2: string;
   potential_option_3: string;
