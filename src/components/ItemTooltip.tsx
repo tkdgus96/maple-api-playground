@@ -13,6 +13,7 @@ const ItemWrapper = styled.div`
   display: flex;
   padding: 0.5rem;
   min-width: 16rem;
+  max-width: 18rem;
   flex-direction: column;
   background-color: black;
   gap: 0.5rem;
@@ -53,7 +54,7 @@ const ItemBox = ({ item }: { item: ItemEquipment }) => {
       </ItemTitleWrapper>
       <Divider
         type="horizontal"
-        style={{ color: "white", margin: "16px 0px" }}
+        style={{ color: "white", margin: "4px 0px" }}
       />
       <div>
         <ItemImgWrapper>
@@ -62,7 +63,7 @@ const ItemBox = ({ item }: { item: ItemEquipment }) => {
       </div>
       <Divider
         type="horizontal"
-        style={{ color: "white", margin: "16px 0px" }}
+        style={{ color: "white", margin: "4px 0px" }}
       />
       <div>
         <div>장비 분류: {item.item_equipment_slot}</div>
