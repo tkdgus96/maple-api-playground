@@ -151,7 +151,6 @@ const ItemTooltip: FC<Props> = ({ children, item }) => {
       title={<ItemBox item={item} />}
       arrow={false}
       overlayInnerStyle={{ width: "max-content" }}
-      trigger="click"
     >
       {children}
     </Tooltip>
