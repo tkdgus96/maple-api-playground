@@ -22,8 +22,11 @@ const Search = () => {
   const [name, setName] = useState("");
   const navigate = useNavigate();
 
-  const handleChange = (input: string) => {
-    setName(input);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  };
+  const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") handleOk();
   };
 
   const handleOk = async () => {
@@ -45,7 +48,11 @@ const Search = () => {
       <h1>메이플스토리 Open API 실험실</h1>
       <h2>캐릭터명을 입력하세요</h2>
       <Row>
-        <input value={name} onChange={(e) => handleChange(e.target.value)} />
+        <input
+          value={name}
+          onChange={(e) => handleChange(e)}
+          onKeyDown={(e) => handleEnter(e)}
+        />
         <button type="button" onClick={() => handleOk()}>
           입력
         </button>
