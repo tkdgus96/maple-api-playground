@@ -25,7 +25,7 @@ const ItemWrapper = styled.div`
 const ItemImgWrapper = styled.div`
   background-color: white;
   border: 2px yellow;
-  padding: 1px;
+  padding: 4px;
   border-radius: 4px;
   align-items: center;
   display: inline-flex;
