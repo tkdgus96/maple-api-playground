@@ -189,3 +189,23 @@ export interface CharacterItemEquipmentResponse {
     // TODO: 메카닉 장비, 에반 장비도 추가하기
   };
 }
+
+export interface CharacterSkill {
+  skill_name: string;
+  skill_description: string;
+  skill_level: string;
+  skill_effect: string;
+  skill_icon: string;
+}
+export interface CharacterLinkSkillResponse {
+  date: string;
+  character_class: string;
+  character_link_skill: CharacterSkill[];
+  character_link_skill_preset_1: CharacterSkill[];
+  character_link_skill_preset_2: CharacterSkill[];
+  character_link_skill_preset_3: CharacterSkill[];
+  character_owned_link_skill: CharacterSkill;
+  character_owned_link_skill_preset_1: CharacterSkill;
+  character_owned_link_skill_preset_2: CharacterSkill;
+  character_owned_link_skill_preset_3: CharacterSkill;
+}

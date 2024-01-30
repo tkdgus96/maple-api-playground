@@ -81,6 +81,12 @@ const NavigationBar = () => {
           disabled: true,
         },
         {
+          label: (
+            <NavLink to={`character/link?ocid=${ocid}`}>링크 스킬 정보</NavLink>
+          ),
+          key: "linkSkillInfo",
+        },
+        {
           label: "V매트릭스 정보",
           key: "vmatrixInfo",
           disabled: true,
