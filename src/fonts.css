@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "Maple";
+  font-style: normal;
+  font-weight: 400;
+  src: url("@/fonts/MaplestoryLight.woff") format("woff");
+}
+
+* {
+  font-family: "Maple";
+}
