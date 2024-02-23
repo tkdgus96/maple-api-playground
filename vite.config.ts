@@ -14,4 +14,7 @@ export default defineConfig({
       { find: "@", replacement: "/src/" },
     ],
   },
+  define: {
+    "process.env.VITE_API_KEY": JSON.stringify(process.env.VITE_API_KEY),
+  },
 });
