@@ -7,10 +7,7 @@ const client = axios.create({
     "Cache-Control": "no-cache",
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
-    "x-nxopen-api-key":
-      import.meta.env.MODE === "development"
-        ? import.meta.env.VITE_API_KEY
-        : process.env.API_KEY,
+    "x-nxopen-api-key": import.meta.env.VITE_API_KEY,
   },
   responseType: "json",
 });
