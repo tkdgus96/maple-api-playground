@@ -23,7 +23,6 @@ const Character = () => {
   >(undefined);
 
   useEffect(() => {
-    console.log(searchParams.get("ocid"));
     const ocid = searchParams.get("ocid");
     if (ocid !== null) {
       (async function () {

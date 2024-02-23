@@ -18,9 +18,12 @@ const NavigationBar = () => {
           key: "basicInfo",
         },
         {
-          label: "종합 능력치 정보",
+          label: (
+            <NavLink to={`character/stat?ocid=${ocid}`}>
+              종합 능력치 정보
+            </NavLink>
+          ),
           key: "statInfo",
-          disabled: true,
         },
         {
           label: "하이퍼스탯 정보",

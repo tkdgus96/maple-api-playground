@@ -6,6 +6,7 @@ export interface CharacterInfoResponse {
   character_exp_rate: string;
   character_gender: string;
   character_guild_name: string;
+  character_name: string;
   character_image: string; // url
   character_level: number;
   date: string;
@@ -208,4 +209,13 @@ export interface CharacterLinkSkillResponse {
   character_owned_link_skill_preset_1: CharacterSkill;
   character_owned_link_skill_preset_2: CharacterSkill;
   character_owned_link_skill_preset_3: CharacterSkill;
+}
+
+export interface CharacterDojangResponse {
+  date: string;
+  character_class: string;
+  world_name: string;
+  dojang_best_floor: number;
+  date_dojang_record: string;
+  dojang_best_time: number;
 }
