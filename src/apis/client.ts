@@ -8,7 +8,7 @@ const client = axios.create({
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
     "x-nxopen-api-key":
-      "test_760dd7575f03db5bdda1171af9fd554a35a80b5f253da545345beb340543f52796287a47ff9f351f2af3c48682841363",
+      "live_760dd7575f03db5bdda1171af9fd554ae18d2e3d35959fb50467974b08ac7625ffaa9978cb4c6a7d9fab4c6f9fcb8bc4",
   },
   responseType: "json",
 });
