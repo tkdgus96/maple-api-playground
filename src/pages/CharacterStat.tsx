@@ -9,6 +9,7 @@ import unionApi from "@apis/union";
 import {
   CharacterDojangResponse,
   CharacterInfoResponse,
+  CharacterPopularityResponse,
   CharacterStatResponse,
 } from "@customTypes/character";
 import { UnionInfoResponse } from "@customTypes/union";
@@ -184,10 +185,12 @@ const CharacterBox = ({
   characterInfo,
   unionInfo,
   dojangInfo,
+  popularityInfo,
 }: {
   characterInfo: CharacterInfoResponse;
   unionInfo: UnionInfoResponse;
   dojangInfo: CharacterDojangResponse;
+  popularityInfo: CharacterPopularityResponse;
 }) => {
   return (
     <Row style={{ justifyContent: "space-evenly" }}>
@@ -215,7 +218,7 @@ const CharacterBox = ({
           </CharacterInfoBox>
           <CharacterInfoBox>
             <div>인기도</div>
-            <div>{unionInfo.union_level}</div>
+            <div>{popularityInfo.popularity}</div>
           </CharacterInfoBox>
         </div>
       </div>
@@ -270,6 +273,9 @@ const CharacterStat = () => {
   const [unionInfo, setUnionInfo] = useState<UnionInfoResponse | undefined>(
     undefined
   );
+  const [popularityInfo, setPopularityInfo] = useState<
+    CharacterPopularityResponse | undefined
+  >(undefined);
   const [stat, setStat] = useState<CharacterStatResponse | undefined>(
     undefined
   );
@@ -294,16 +300,21 @@ const CharacterStat = () => {
         const res = await characterApi.getDojangInfo(ocid);
         setDojangInfo(res);
       })();
+      (async function () {
+        const res = await characterApi.getPopularityInfo(ocid);
+        setPopularityInfo(res);
+      })();
     }
   }, [ocid]);
 
   return (
     <Column style={{ gap: "0.1rem" }}>
-      {characterInfo && unionInfo && dojangInfo && (
+      {characterInfo && unionInfo && dojangInfo && popularityInfo && (
         <CharacterBox
           characterInfo={characterInfo}
           unionInfo={unionInfo}
           dojangInfo={dojangInfo}
+          popularityInfo={popularityInfo}
         />
       )}
       <Column
