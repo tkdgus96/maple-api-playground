@@ -14,7 +14,7 @@ import {
 } from "@customTypes/character";
 import { UnionInfoResponse } from "@customTypes/union";
 import styled from "@emotion/styled";
-import { Carousel, Tooltip } from "antd";
+import { Carousel, Tooltip, Typography } from "antd";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
@@ -257,8 +257,13 @@ const CharacterBox = ({
         </div>
         <div>
           <CharacterInfoBox>
-            <div>길드</div>
-            <div>{characterInfo.character_guild_name}</div>
+            <Typography.Text>길드</Typography.Text>
+            <Typography.Text
+              style={{ width: "3rem" }}
+              ellipsis={{ tooltip: characterInfo.character_guild_name }}
+            >
+              {characterInfo.character_guild_name}
+            </Typography.Text>
           </CharacterInfoBox>
         </div>
       </div>
