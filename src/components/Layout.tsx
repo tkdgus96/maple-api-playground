@@ -8,8 +8,8 @@ import { useLocation } from "react-router-dom";
 const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 90vh;
-  min-width: 90vw;
+  min-height: 85vh;
+  min-width: 80vw;
   justify-content: center;
   align-items: center;
 `;
@@ -28,7 +28,7 @@ const Column = styled.div`
 `;
 
 const BodyWrapper = styled.div`
-  min-height: calc(90vh - 61.5px);
+  min-height: calc(85vh - 61.5px);
   padding-top: 3rem;
 `;
 const FooterWrapper = styled.div`

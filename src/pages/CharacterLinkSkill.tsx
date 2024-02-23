@@ -14,10 +14,11 @@ const Row = styled.div`
 `;
 const TableRow = styled.li`
   background: gray;
-  width: 12rem;
+  width: 10rem;
   height: 2.125rem;
   padding: 0.5rem;
   align-content: center;
+  font-size: 0.8rem;
 `;
 
 const Table = styled.ul`

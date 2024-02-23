@@ -6,7 +6,7 @@ import { createSearchParams, useNavigate } from "react-router-dom";
 const SearchPageWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 90dvh;
+  min-height: 85dvh;
   min-width: 90dvw;
   justify-content: center;
   align-items: center;
@@ -45,8 +45,8 @@ const Search = () => {
 
   return (
     <SearchPageWrapper>
-      <h1>메이플스토리 Open API 실험실</h1>
-      <h2>캐릭터명을 입력하세요</h2>
+      <h2>메이플스토리 Open API 실험실</h2>
+      <h3>캐릭터명을 입력하세요</h3>
       <Row>
         <input
           value={name}

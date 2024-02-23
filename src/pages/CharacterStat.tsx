@@ -21,7 +21,7 @@ import { useSearchParams } from "react-router-dom";
 const Column = styled.div`
   display: flex;
   flex-direction: column;
-  width: 30rem;
+  width: 20rem;
 `;
 
 const Row = styled.div`
@@ -42,6 +42,7 @@ const CharacterInfoBox = styled.div`
   flex-direction: row;
   justify-content: space-between;
   background-color: #d8dfe6;
+  font-size: 0.875rem;
 `;
 const CharacterClassBox = styled.div`
   padding: 0.25rem 0.5rem;
@@ -50,6 +51,7 @@ const CharacterClassBox = styled.div`
   flex-direction: row;
   justify-content: center;
   background-color: #acacb4;
+  font-size: 0.875rem;
 `;
 const CharacterLevelBox = styled.div`
   padding: 0.25rem 0.5rem;
@@ -58,6 +60,7 @@ const CharacterLevelBox = styled.div`
   flex-direction: row;
   justify-content: center;
   background-color: #acacb4;
+  font-size: 0.875rem;
 `;
 
 const CharacterNameBox = styled.div`
@@ -67,6 +70,7 @@ const CharacterNameBox = styled.div`
   flex-direction: row;
   justify-content: center;
   background-color: #3cc3d4;
+  font-size: 0.875rem;
 `;
 
 const statValueRenderer = (statName: string, stat: CharacterStatResponse) => {
@@ -107,7 +111,7 @@ const SubStatRenderer = (stat: CharacterStatResponse) => {
       {statOrder.map((statPair) => (
         <Row style={{ gap: "0.5rem" }}>
           {statPair.map((statName) => (
-            <StatBox style={{ fontSize: "1rem" }}>
+            <StatBox style={{ fontSize: "0.75rem" }}>
               <div>
                 {statName === "최대 스탯공격력" ? "스탯 공격력" : statName}
               </div>
@@ -141,14 +145,14 @@ const SubSubStatRenderer = (stat: CharacterStatResponse) => {
         gap: "0.5rem",
         display: "flex",
         flexDirection: "column",
-        width: "31rem",
+        width: "21rem",
       }}
     >
       <Column style={{ padding: "0.5rem 0.5rem" }}>
         {firstBoxOrder.map((statPair) => (
           <Row style={{ gap: "0.5rem" }}>
             {statPair.map((statName) => (
-              <StatBox style={{ fontSize: "1rem" }}>
+              <StatBox style={{ fontSize: "0.875rem" }}>
                 <div>{statName}</div>
                 <div>{statValueRenderer(statName, stat)}</div>
               </StatBox>
@@ -160,7 +164,7 @@ const SubSubStatRenderer = (stat: CharacterStatResponse) => {
         {secondBoxOrder.map((statPair) => (
           <Row style={{ gap: "0.5rem" }}>
             {statPair.map((statName) => (
-              <StatBox style={{ fontSize: "1rem" }}>
+              <StatBox style={{ fontSize: "0.875rem" }}>
                 <div>{statName}</div>
                 <div>{statValueRenderer(statName, stat)}</div>
               </StatBox>
@@ -326,7 +330,7 @@ const CharacterStat = () => {
           padding: "0.5rem 0.5rem",
           borderRadius: "8px",
           gap: "5rem",
-          fontSize: "1.125rem",
+          fontSize: "0.875rem",
         }}
       >
         <div style={{ color: "#c6dee6" }}>전투력</div>
