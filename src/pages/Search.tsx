@@ -1,5 +1,6 @@
 import characterApi from "@apis/character";
 import styled from "@emotion/styled";
+import { Button, Input } from "antd";
 import { useState } from "react";
 import { createSearchParams, useNavigate } from "react-router-dom";
 
@@ -48,14 +49,12 @@ const Search = () => {
       <h2>메이플스토리 Open API 실험실</h2>
       <h3>캐릭터명을 입력하세요</h3>
       <Row>
-        <input
+        <Input
           value={name}
           onChange={(e) => handleChange(e)}
           onKeyDown={(e) => handleEnter(e)}
         />
-        <button type="button" onClick={() => handleOk()}>
-          입력
-        </button>
+        <Button onClick={() => handleOk()}>입력</Button>
       </Row>
     </SearchPageWrapper>
   );

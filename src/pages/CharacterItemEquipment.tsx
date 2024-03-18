@@ -3,6 +3,7 @@ import characterApi from "@apis/character";
 import ItemTooltip from "@components/ItemTooltip";
 import { CharacterItemEquipmentResponse } from "@customTypes/character";
 import styled from "@emotion/styled";
+import { Skeleton } from "antd";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
@@ -32,6 +33,8 @@ const Column = styled.div`
   gap: 1rem;
 `;
 
+const skeletonArray = new Array(24).fill(1);
+
 const CharacterItemEquipment = () => {
   const [equipment, setEquipment] = useState<
     CharacterItemEquipmentResponse | undefined
@@ -58,22 +61,32 @@ const CharacterItemEquipment = () => {
             <img src={item.item_shape_icon} />
             <Row>
               {item.item_name}{" "}
-              {item.starforce_scroll_flag !== "0" && (
-                <Row>
-                  <StarTwoTone
-                    twoToneColor={
-                      item.starforce_scroll_flag === "미사용"
-                        ? "yellow"
-                        : "pink"
-                    }
-                  />
-                  <div>{item.starforce}</div>
-                </Row>
-              )}
+              {!!Number(item.starforce) &&
+                item.starforce_scroll_flag !== "0" && (
+                  <Row>
+                    <StarTwoTone
+                      twoToneColor={
+                        item.starforce_scroll_flag === "미사용"
+                          ? "yellow"
+                          : "pink"
+                      }
+                    />
+                    <div>{item.starforce}</div>
+                  </Row>
+                )}
             </Row>
           </ItemWrapper>
         </ItemTooltip>
-      ))}
+      )) ?? (
+        <>
+          {skeletonArray.map(() => (
+            <ItemWrapper>
+              <Skeleton.Avatar style={{ height: "24px", width: "24px" }} />
+              <Skeleton.Input style={{ height: "24px" }} />
+            </ItemWrapper>
+          ))}
+        </>
+      )}
     </Column>
   );
 };
