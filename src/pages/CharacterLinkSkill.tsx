@@ -45,11 +45,12 @@ const CharacterLinkSkill: FC<Props> = () => {
   const [searchParams] = useSearchParams();
 
   const ocid = searchParams.get("ocid");
+  const date = searchParams.get("date");
 
   useEffect(() => {
-    if (ocid !== null) {
+    if (ocid !== null && date !== null) {
       (async function () {
-        const res = await characterApi.getLinkSkillInfo(ocid);
+        const res = await characterApi.getLinkSkillInfo(ocid, date);
         setLinkSkill(res);
       })();
     }

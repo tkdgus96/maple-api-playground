@@ -291,27 +291,28 @@ const CharacterStat = () => {
   );
 
   const ocid = searchParams.get("ocid");
+  const date = searchParams.get("date");
 
   useEffect(() => {
-    if (ocid !== null) {
+    if (ocid !== null && date !== null) {
       (async function () {
-        const res = await characterApi.getStatInfo(ocid);
+        const res = await characterApi.getStatInfo(ocid, date);
         setStat(res);
       })();
       (async function () {
-        const res = await characterApi.getBasicInfo(ocid);
+        const res = await characterApi.getBasicInfo(ocid, date);
         setCharacterInfo(res);
       })();
       (async function () {
-        const res = await unionApi.getUnionInfo(ocid);
+        const res = await unionApi.getUnionInfo(ocid, date);
         setUnionInfo(res);
       })();
       (async function () {
-        const res = await characterApi.getDojangInfo(ocid);
+        const res = await characterApi.getDojangInfo(ocid, date);
         setDojangInfo(res);
       })();
       (async function () {
-        const res = await characterApi.getPopularityInfo(ocid);
+        const res = await characterApi.getPopularityInfo(ocid, date);
         setPopularityInfo(res);
       })();
     }

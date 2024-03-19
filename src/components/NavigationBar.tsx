@@ -4,6 +4,8 @@ import { NavLink, useSearchParams } from "react-router-dom";
 const NavigationBar = () => {
   const [searchParams] = useSearchParams();
   const ocid = searchParams.get("ocid");
+  const date = searchParams.get("date");
+
   const items: MenuProps["items"] = [
     {
       label: <NavLink to="">검색</NavLink>,
@@ -14,12 +16,18 @@ const NavigationBar = () => {
       key: "character",
       children: [
         {
-          label: <NavLink to={`character?ocid=${ocid}`}>기본 정보</NavLink>,
+          label: (
+            <NavLink to={`character?ocid=${ocid}&date=${date}`}>
+              기본 정보
+            </NavLink>
+          ),
           key: "basicInfo",
         },
         {
           label: (
-            <NavLink to={`character/stat?ocid=${ocid}`}>
+            <NavLink
+              to={`character/stat?ocid=${ocid}&date=${date}&date=${date}`}
+            >
               종합 능력치 정보
             </NavLink>
           ),
@@ -27,7 +35,9 @@ const NavigationBar = () => {
         },
         {
           label: (
-            <NavLink to={`character/hyperStat?ocid=${ocid}`}>
+            <NavLink
+              to={`character/hyperStat?ocid=${ocid}&date=${date}&date=${date}`}
+            >
               하이퍼 스탯 정보
             </NavLink>
           ),
@@ -45,7 +55,7 @@ const NavigationBar = () => {
         },
         {
           label: (
-            <NavLink to={`character/equipment?ocid=${ocid}`}>
+            <NavLink to={`character/equipment?ocid=${ocid}&date=${date}`}>
               장착 장비 정보
             </NavLink>
           ),
@@ -88,7 +98,9 @@ const NavigationBar = () => {
         },
         {
           label: (
-            <NavLink to={`character/link?ocid=${ocid}`}>링크 스킬 정보</NavLink>
+            <NavLink to={`character/link?ocid=${ocid}&date=${date}`}>
+              링크 스킬 정보
+            </NavLink>
           ),
           key: "linkSkillInfo",
         },

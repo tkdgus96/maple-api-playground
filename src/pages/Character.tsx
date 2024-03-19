@@ -24,13 +24,14 @@ const Character = () => {
 
   useEffect(() => {
     const ocid = searchParams.get("ocid");
-    if (ocid !== null) {
+    const date = searchParams.get("date");
+    if (ocid !== null && date !== null) {
       (async function () {
-        const res = await characterApi.getBasicInfo(ocid);
+        const res = await characterApi.getBasicInfo(ocid, date);
         setCharacterInfo(res);
       })();
       (async function () {
-        const res = await characterApi.getPopularityInfo(ocid);
+        const res = await characterApi.getPopularityInfo(ocid, date);
         setPopularityInfo(res);
       })();
     }

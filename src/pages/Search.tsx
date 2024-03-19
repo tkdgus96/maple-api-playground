@@ -1,6 +1,7 @@
 import characterApi from "@apis/character";
 import styled from "@emotion/styled";
-import { Button, Input } from "antd";
+import { Button, DatePicker, Input } from "antd";
+import dayjs from "dayjs";
 import { useState } from "react";
 import { createSearchParams, useNavigate } from "react-router-dom";
 
@@ -21,6 +22,7 @@ const Row = styled.div`
 
 const Search = () => {
   const [name, setName] = useState("");
+  const [date, setDate] = useState(dayjs(new Date()));
   const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,6 +39,7 @@ const Search = () => {
         pathname: "character",
         search: createSearchParams({
           ocid: res.ocid,
+          date: date.toISOString(),
         }).toString(),
       });
     } catch (error) {
@@ -53,8 +56,22 @@ const Search = () => {
           value={name}
           onChange={(e) => handleChange(e)}
           onKeyDown={(e) => handleEnter(e)}
+          style={{ width: "10rem" }}
         />
         <Button onClick={() => handleOk()}>입력</Button>
+        <DatePicker
+          placeholder="날짜"
+          value={date}
+          onChange={(v) => {
+            if (v) setDate(v);
+          }}
+          style={{
+            paddingLeft: ".5rem",
+            paddingRight: ".5rem",
+            width: "6.5rem",
+          }}
+          format={"YY/MM/DD"}
+        />
       </Row>
     </SearchPageWrapper>
   );
