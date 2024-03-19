@@ -1,5 +1,6 @@
 import {
   CharacterDojangResponse,
+  CharacterHyperStatResponse,
   CharacterInfoResponse,
   CharacterItemEquipmentResponse,
   CharacterLinkSkillResponse,
@@ -51,7 +52,7 @@ const characterApi = {
         date: new Date(Date.now() - 86400000).toISOString().split("T")[0],
       },
     });
-    return res.data as CharacterInfoResponse;
+    return res.data as CharacterHyperStatResponse;
   },
   async getPropensityInfo(ocid: string) {
     const res = await client.get("maplestory/v1/character/propensity", {

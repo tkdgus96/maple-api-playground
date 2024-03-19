@@ -1,4 +1,5 @@
 import Character from "@pages/Character";
+import CharacterHyperStat from "@pages/CharacterHyperStat";
 import CharacterItemEquipment from "@pages/CharacterItemEquipment";
 import CharacterLinkSkill from "@pages/CharacterLinkSkill";
 import CharacterStat from "@pages/CharacterStat";
@@ -14,6 +15,7 @@ const Router = () => {
         <Route path="equipment" element={<CharacterItemEquipment />} />
         <Route path="link" element={<CharacterLinkSkill />} />
         <Route path="stat" element={<CharacterStat />} />
+        <Route path="hyperStat" element={<CharacterHyperStat />} />
       </Route>
     </Routes>
   );

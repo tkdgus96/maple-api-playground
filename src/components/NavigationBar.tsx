@@ -26,9 +26,12 @@ const NavigationBar = () => {
           key: "statInfo",
         },
         {
-          label: "하이퍼스탯 정보",
+          label: (
+            <NavLink to={`character/hyperStat?ocid=${ocid}`}>
+              하이퍼 스탯 정보
+            </NavLink>
+          ),
           key: "hyperStatInfo",
-          disabled: true,
         },
         {
           label: "성향 정보",
