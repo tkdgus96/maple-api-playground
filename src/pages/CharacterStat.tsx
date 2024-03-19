@@ -197,7 +197,7 @@ const CharacterBox = ({
   popularityInfo: CharacterPopularityResponse;
 }) => {
   return (
-    <Row style={{ justifyContent: "space-evenly" }}>
+    <Row style={{ justifyContent: "space-between", width: "100%" }}>
       <div
         style={{
           width: "30%",
@@ -258,12 +258,13 @@ const CharacterBox = ({
         <div>
           <CharacterInfoBox>
             <Typography.Text>길드</Typography.Text>
-            <Typography.Text
-              style={{ width: "3rem" }}
-              ellipsis={{ tooltip: characterInfo.character_guild_name }}
-            >
-              {characterInfo.character_guild_name}
-            </Typography.Text>
+            <div style={{ width: "3rem", textAlign: "end" }}>
+              <Typography.Text
+                ellipsis={{ tooltip: characterInfo.character_guild_name }}
+              >
+                {characterInfo.character_guild_name}
+              </Typography.Text>
+            </div>
           </CharacterInfoBox>
         </div>
       </div>
@@ -317,7 +318,7 @@ const CharacterStat = () => {
   }, [ocid]);
 
   return (
-    <Column style={{ gap: "0.1rem" }}>
+    <Column style={{ gap: "0.1rem", width: "100%" }}>
       {characterInfo && unionInfo && dojangInfo && popularityInfo && (
         <CharacterBox
           characterInfo={characterInfo}
