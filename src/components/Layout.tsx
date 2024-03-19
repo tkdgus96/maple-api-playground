@@ -18,6 +18,7 @@ const ColumnLayout = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  width: 25rem;
 `;
 
 const Column = styled.div`
