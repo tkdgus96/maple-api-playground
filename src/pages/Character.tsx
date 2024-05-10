@@ -25,7 +25,7 @@ const Character = () => {
   useEffect(() => {
     const ocid = searchParams.get("ocid");
     const date = searchParams.get("date");
-    if (ocid !== null && date !== null) {
+    if (ocid !== null) {
       (async function () {
         const res = await characterApi.getBasicInfo(ocid, date);
         setCharacterInfo(res);

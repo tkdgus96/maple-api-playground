@@ -4,7 +4,7 @@ import { NavLink, useSearchParams } from "react-router-dom";
 const NavigationBar = () => {
   const [searchParams] = useSearchParams();
   const ocid = searchParams.get("ocid");
-  const date = searchParams.get("date");
+  const date = searchParams.get("date") ? searchParams.get("date") : undefined;
 
   const items: MenuProps["items"] = [
     {
@@ -17,7 +17,9 @@ const NavigationBar = () => {
       children: [
         {
           label: (
-            <NavLink to={`character?ocid=${ocid}&date=${date}`}>
+            <NavLink
+              to={`character?ocid=${ocid}${date ? `&date={${date}}` : ""}`}
+            >
               기본 정보
             </NavLink>
           ),
@@ -26,7 +28,7 @@ const NavigationBar = () => {
         {
           label: (
             <NavLink
-              to={`character/stat?ocid=${ocid}&date=${date}&date=${date}`}
+              to={`character/stat?ocid=${ocid}${date ? `&date={${date}}` : ""}`}
             >
               종합 능력치 정보
             </NavLink>
@@ -36,7 +38,7 @@ const NavigationBar = () => {
         {
           label: (
             <NavLink
-              to={`character/hyperStat?ocid=${ocid}&date=${date}&date=${date}`}
+              to={`character/hyperStat?ocid=${ocid}${date ? `&date={${date}}` : ""}`}
             >
               하이퍼 스탯 정보
             </NavLink>
@@ -55,7 +57,9 @@ const NavigationBar = () => {
         },
         {
           label: (
-            <NavLink to={`character/equipment?ocid=${ocid}&date=${date}`}>
+            <NavLink
+              to={`character/equipment?ocid=${ocid}${date ? `&date={${date}}` : ""}`}
+            >
               장착 장비 정보
             </NavLink>
           ),
@@ -98,7 +102,9 @@ const NavigationBar = () => {
         },
         {
           label: (
-            <NavLink to={`character/link?ocid=${ocid}&date=${date}`}>
+            <NavLink
+              to={`character/link?ocid=${ocid}${date ? `&date={${date}}` : ""}`}
+            >
               링크 스킬 정보
             </NavLink>
           ),

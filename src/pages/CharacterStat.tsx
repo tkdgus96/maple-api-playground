@@ -294,7 +294,7 @@ const CharacterStat = () => {
   const date = searchParams.get("date");
 
   useEffect(() => {
-    if (ocid !== null && date !== null) {
+    if (ocid !== null) {
       (async function () {
         const res = await characterApi.getStatInfo(ocid, date);
         setStat(res);

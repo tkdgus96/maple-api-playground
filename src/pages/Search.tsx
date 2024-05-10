@@ -1,6 +1,6 @@
 import characterApi from "@apis/character";
 import styled from "@emotion/styled";
-import { Button, DatePicker, Input } from "antd";
+import { Button, Checkbox, DatePicker, Input } from "antd";
 import dayjs from "dayjs";
 import { useState } from "react";
 import { createSearchParams, useNavigate } from "react-router-dom";
@@ -23,6 +23,7 @@ const Row = styled.div`
 const Search = () => {
   const [name, setName] = useState("");
   const [date, setDate] = useState(dayjs(new Date()));
+  const [live, setLive] = useState(true);
   const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,10 +38,14 @@ const Search = () => {
       const res = await characterApi.getOcid(name);
       navigate({
         pathname: "character",
-        search: createSearchParams({
-          ocid: res.ocid,
-          date: date.toISOString(),
-        }).toString(),
+        search: createSearchParams(
+          live
+            ? { ocid: res.ocid }
+            : {
+                ocid: res.ocid,
+                date: date.toISOString(),
+              }
+        ).toString(),
       });
     } catch (error) {
       alert("존재하지 않는 캐릭터명입니다.");
@@ -59,9 +64,14 @@ const Search = () => {
           style={{ width: "10rem" }}
         />
         <Button onClick={() => handleOk()}>입력</Button>
+        <Checkbox checked={live} onChange={() => setLive(!live)} />
+        <span style={{ display: "inline-flex", alignItems: "center" }}>
+          Live
+        </span>
         <DatePicker
           placeholder="날짜"
           value={date}
+          disabled={live}
           onChange={(v) => {
             if (v) setDate(v);
           }}

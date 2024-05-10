@@ -31,7 +31,7 @@ const CharacterHyperStat: FC<Props> = () => {
   useEffect(() => {
     const ocid = searchParams.get("ocid");
     const date = searchParams.get("date");
-    if (ocid !== null && date !== null) {
+    if (ocid !== null) {
       (async function () {
         const res = await characterApi.getHyperStatInfo(ocid, date);
         setHyperStat(res);

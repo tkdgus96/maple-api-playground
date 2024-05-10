@@ -46,7 +46,7 @@ const CharacterItemEquipment = () => {
   const date = searchParams.get("date");
 
   useEffect(() => {
-    if (ocid !== null && date !== null) {
+    if (ocid !== null) {
       (async function () {
         const res = await characterApi.getItemEquipmentInfo(ocid, date);
         setEquipment(res);
