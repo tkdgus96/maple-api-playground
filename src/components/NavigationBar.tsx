@@ -46,9 +46,14 @@ const NavigationBar = () => {
           key: "hyperStatInfo",
         },
         {
-          label: "성향 정보",
+          label: (
+            <NavLink
+              to={`character/propensity?ocid=${ocid}${date ? `&date={${date}}` : ""}`}
+            >
+              성향 정보
+            </NavLink>
+          ),
           key: "propensityInfo",
-          disabled: true,
         },
         {
           label: "어빌리티 정보",

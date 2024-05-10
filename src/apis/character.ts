@@ -5,6 +5,7 @@ import {
   CharacterItemEquipmentResponse,
   CharacterLinkSkillResponse,
   CharacterPopularityResponse,
+  CharacterPropensityResponse,
   CharacterStatResponse,
 } from "@customTypes/character";
 import client from "./client";
@@ -61,7 +62,7 @@ const characterApi = {
         date: date?.split("T")[0],
       },
     });
-    return res.data as CharacterInfoResponse;
+    return res.data as CharacterPropensityResponse;
   },
   async getAbilityInfo(ocid: string, date?: string | null) {
     const res = await client.get("maplestory/v1/character/ability", {

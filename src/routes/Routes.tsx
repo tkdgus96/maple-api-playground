@@ -2,6 +2,7 @@ import Character from "@pages/Character";
 import CharacterHyperStat from "@pages/CharacterHyperStat";
 import CharacterItemEquipment from "@pages/CharacterItemEquipment";
 import CharacterLinkSkill from "@pages/CharacterLinkSkill";
+import CharacterPropensity from "@pages/CharacterPropensity";
 import CharacterStat from "@pages/CharacterStat";
 import Search from "@pages/Search";
 import { Route, Routes } from "react-router-dom";
@@ -13,6 +14,7 @@ const Router = () => {
       <Route path="character">
         <Route index element={<Character />} />
         <Route path="equipment" element={<CharacterItemEquipment />} />
+        <Route path="propensity" element={<CharacterPropensity />} />
         <Route path="link" element={<CharacterLinkSkill />} />
         <Route path="stat" element={<CharacterStat />} />
         <Route path="hyperStat" element={<CharacterHyperStat />} />

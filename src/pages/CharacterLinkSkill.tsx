@@ -53,6 +53,10 @@ const CharacterLinkSkill: FC<Props> = () => {
         const res = await characterApi.getLinkSkillInfo(ocid, date);
         setLinkSkill(res);
       })();
+      (async function () {
+        const res = await characterApi.getPropensityInfo(ocid, date);
+        console.log(res);
+      })();
     }
   }, [ocid]);
   return (
